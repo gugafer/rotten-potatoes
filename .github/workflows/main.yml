@@ -44,7 +44,7 @@ jobs:
             mestre101/rotten-potatoes:${{github.run_number}}
             
   CD:
-    needs: [CI]
+    needs: [build]
     runs-on: ubuntu-latest
     
     steps:
