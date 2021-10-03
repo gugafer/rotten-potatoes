@@ -42,3 +42,19 @@ jobs:
           tags: |
             mestre101/rotten-potatoes:latest
             mestre101/rotten-potatoes:${{github.run_number}}
+            
+  CD:
+    needs: [CI]
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Kubernetes set context
+        uses: Azure/k8s-set-context@v1.1
+        with:
+          # Acceptable values: kubeconfig or service-account or service-principal
+          method: kubeconfig
+          # Kubernetes Config
+          kubeconfig: ${{secrets.K8S_CONFIG}} 
+          # If your kubeconfig has multiple contexts, use this field to use a specific context, otherwise the default one would be chosen
+          #context: # optional, default is 
