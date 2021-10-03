@@ -40,5 +40,5 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            mestre101/rotten-potatos:latest
-            mestre101/rotten-potatos:${{github.run_number}}
+            mestre101/rotten-potatoes:latest
+            mestre101/rotten-potatoes:${{github.run_number}}
